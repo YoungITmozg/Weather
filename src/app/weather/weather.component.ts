@@ -8,7 +8,7 @@ import { WeatherService } from '../shared/services/weather.service';
   styleUrls: ['./weather.component.css']
 })
 export class WeatherComponent implements OnInit {
-  weather: Weather = new Weather();
+  weather: Weather;
   selectCity: string = "Novomoskovsk";
 
 
@@ -18,17 +18,19 @@ export class WeatherComponent implements OnInit {
     this.search()
   }
 
-  search(){
-    this.wthr.getData(this.selectCity).subscribe((responce: any) => {
-      debugger
-      this.weather.temp = responce.list[0].main.temp;
-      this.weather.temp = this.weather.temp - 273.15;
-      console.log(responce)
-    })    
+   search(){
+    this.wthr
+    .getData(this.selectCity)
+    .subscribe(
+      (responce: any) => { 
+        console.log(responce)
+        this.weather = new Weather();
+        this.weather.temp = responce.list[0].main.temp;
+        this.weather.iconUrl = 'http://openweathermap.org/img/wn/' + responce.list[0].weather[0].icon + '@2x.png';
+        this.weather.temp = Math.round(this.weather.temp - 273.15);
+      }
+    )   
+    
   }
 
-
-  toFixed(number: any){
-    return Math.round(number * 100) / 100; 
-  }
 }

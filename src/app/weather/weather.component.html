@@ -1,3 +1,7 @@
+<div *ngIf="!weather">
+ Загрузка...
+</div>
 <div *ngIf="weather">
-    <p>Температура: {{ weather.temp }}</p>
+    <p>Температура: {{ weather.temp }}°C</p>
+    <img [src]="weather.iconUrl">
 </div>
