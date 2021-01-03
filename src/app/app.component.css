@@ -1,0 +1,23 @@
+ul {
+    display: flex;
+}
+
+li {
+    list-style-type: none;
+    margin-right: 46px;
+}
+
+li.active {
+    font-weight: 600;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+    font-size: 18px;
+}
+
+a:hover {
+ color: #5a5858;
+}
+
