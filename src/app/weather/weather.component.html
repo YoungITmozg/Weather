@@ -1,10 +1,9 @@
 <ng-select [items]="citys"
                    style="width: 500px;"
                    placeholder="Выберите город"
-                   
-
-                   bindLabel="name" 
-                   [(ngModel)]="selectCity" (ngModelChange)="search()">                  
+                   [clearable]="false"
+                   bindLabel="nameRu" 
+                   [(ngModel)]="selectedCity" (ngModelChange)="search()">                  
 </ng-select>
 
 

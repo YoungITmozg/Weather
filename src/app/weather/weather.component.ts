@@ -9,7 +9,7 @@ import { WeatherService } from '../shared/services/weather.service';
 })
 export class WeatherComponent implements OnInit {
   weather: Weather;
-  selectCity: string;
+  selectedCity: any = {};
 
   citys = [
     { name: 'Moscow', nameRu: 'Москва' },
@@ -17,7 +17,9 @@ export class WeatherComponent implements OnInit {
   ];
 
 
-  constructor(private wthr: WeatherService) {}
+  constructor(private wthr: WeatherService) {
+    this.selectedCity = this.citys[0];
+  }
 
   ngOnInit() {
     this.search()
@@ -25,7 +27,7 @@ export class WeatherComponent implements OnInit {
 
    search(){
     this.wthr
-    .getData(this.selectCity)
+    .getData(this.selectedCity.name)
     .subscribe(
       (responce: any) => { 
         console.log(responce)
