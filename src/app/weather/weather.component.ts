@@ -9,7 +9,12 @@ import { WeatherService } from '../shared/services/weather.service';
 })
 export class WeatherComponent implements OnInit {
   weather: Weather;
-  selectCity: string = "Novomoskovsk";
+  selectCity: string;
+
+  citys = [
+    { name: 'Moscow', nameRu: 'Москва' },
+    { name: 'Novomoskovsk', nameRu: 'Новомосковск' }
+  ];
 
 
   constructor(private wthr: WeatherService) {}

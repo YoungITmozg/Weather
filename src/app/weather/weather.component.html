@@ -1,5 +1,15 @@
+<ng-select [items]="citys"
+                   style="width: 500px;"
+                   placeholder="Выберите город"
+                   
+
+                   bindLabel="name" 
+                   [(ngModel)]="selectCity" (ngModelChange)="search()">                  
+</ng-select>
+
+
 <div *ngIf="!weather">
- Загрузка...
+    Загрузка...
 </div>
 <div *ngIf="weather">
     <p>Температура: {{ weather.temp }}°C</p>
